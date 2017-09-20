@@ -34,7 +34,9 @@ func main() {
 		FunctionReader: handlers.MakeFunctionReader(clientset),
 		ReplicaReader:  handlers.MakeReplicaReader(clientset),
 		ReplicaUpdater: handlers.MakeReplicaUpdater(clientset),
+		UpdateHandler:  handlers.MakeUpdateHandler(clientset),
 	}
+
 	var port int
 	port = 8080
 	bootstrapConfig := bootTypes.FaaSConfig{

@@ -52,6 +52,7 @@ func MakeDeleteHandler(clientset *kubernetes.Clientset) http.HandlerFunc {
 
 		if isFunction(deployment) {
 			deleteFunction(clientset, request, w)
+
 		} else {
 			w.WriteHeader(http.StatusBadRequest)
 
@@ -79,7 +80,6 @@ func deleteFunction(clientset *kubernetes.Clientset, request requests.DeleteFunc
 		} else {
 			w.WriteHeader(http.StatusInternalServerError)
 		}
-
 		w.Write([]byte(deployErr.Error()))
 		return
 	}
